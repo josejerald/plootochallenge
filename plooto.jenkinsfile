@@ -51,7 +51,7 @@ def CreateVEnv(){
 }
 
 def ExecuteTests(){
-    bat "${vEnvironmentPath}\\Scripts\\python.exe -m robot ${projectPath}\\TestCases\\Login.robot"
+    bat "${vEnvironmentPath}\\Scripts\\python.exe -m robot --include ${params.TestType} ${projectPath}\\TestCases"
 }
 
 def PublishResults(){
