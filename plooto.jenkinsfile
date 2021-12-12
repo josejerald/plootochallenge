@@ -1,0 +1,74 @@
+
+
+node(){
+    projectPath = "${WORKSPACE}\\"
+    vEnvironmentPath = "${WORKSPACE}\\plooto-virtual-env"
+
+    stage("Code Checkout"){
+        CodeCheckOut()
+    }
+
+    stage("Create Virtual Env and Install Libraries"){
+        CreateVEnv()
+    }
+
+    stage("Execute Tests"){
+        ExecuteTests()
+    }
+
+    stage("Publish Results"){
+        PublishResults()
+    }
+
+    stage("Deactivate vEnv"){
+        DeactivateVenv()
+    }
+}
+
+def CodeCheckOut(){
+    git branch:'development', url:'https://github.com/josejerald/plootochallenge.git'
+}
+
+def CreateVEnv(){
+    echo projectPath
+    echo vEnvironmentPath
+
+	dir(projectPath){
+	    bat "python -m venv plooto-virtual-env"
+        dir ("${vEnvironmentPath}\\Scripts"){
+            bat "activate.bat"
+            bat "pip install virtualenvwrapper-win"
+		}
+   	}
+
+   	dir("${vEnvironmentPath}\\Scripts"){
+		    //bat "workon plooto-virtual-env"
+			bat "python -m pip install -U pip"
+			bat "pip install -r ${projectPath}requirements.txt"
+	}
+
+
+}
+
+def ExecuteTests(){
+    bat "${vEnvironmentPath}\\Scripts\\python.exe -m robot ${projectPath}\\TestCases\\Login.robot"
+}
+
+def PublishResults(){
+    dir(projectPath){
+        step([$class: 'RobotPublisher',
+        disableArchiveOutput: false,
+		logFileName: "log.html",
+        onlyCritical: true,
+        otherFiles: '',
+        outputFileName: "output.xml",
+        outputPath: '.',
+        passThreshold: 100,
+        reportFileName: "report.html",
+        unstableThreshold: 40])
+    }
+}
+
+def DeactivateVenv(){
+    bat "${vEnvironmentPath}\\Scripts\\deactivate.bat"
+}
