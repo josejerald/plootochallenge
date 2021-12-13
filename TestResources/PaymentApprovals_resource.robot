@@ -1,7 +1,5 @@
 *** Settings ***
-Resource  ..//PageObjects//CompanySelect_PageObj.robot
-Resource  ..//PageObjects//Dashboard_PageObj.robot
-Resource  ..//PageObjects//PaymentApproval_PageObj.robot
+Resource  ..//PageObjects//PaymentApprovals_PageObj.robot
 
 *** Keywords ***
 Access Payment Approvals From Dashboard

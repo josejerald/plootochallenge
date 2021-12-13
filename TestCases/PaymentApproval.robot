@@ -4,7 +4,7 @@ Resource  ..//TestResources//Login_resource.robot
 Resource  ..//TestResources//CompanySelect_resource.robot
 Resource  ..//TestData//Common_Data.robot
 Resource  ..//TestResources//Dashboard_resource.robot
-Resource  ..//TestResources//PaymentApproval_resource.robot
+Resource  ..//TestResources//PaymentApprovals_resource.robot
 
 *** Variables ***
 #Section to add variables if any

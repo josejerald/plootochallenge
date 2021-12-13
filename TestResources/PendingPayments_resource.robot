@@ -1,6 +1,4 @@
 *** Settings ***
-Resource  ..//PageObjects//CompanySelect_PageObj.robot
-Resource  ..//PageObjects//Dashboard_PageObj.robot
 Resource  ..//PageObjects//PendingPayments_PageObj.robot
 
 *** Keywords ***
