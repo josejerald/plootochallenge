@@ -15,6 +15,7 @@ Access Login Page
     ${page_url}=    Generate URL
     Set Test Variable    ${page_url}
     Open Browser    ${page_url}/${pages}[login]    Chrome
+    Maximize Browser Window
     Wait Until Element Is Visible    ${btn_SignIn_xpath}
 
 Enter Credentials And Sign In

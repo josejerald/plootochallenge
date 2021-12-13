@@ -15,9 +15,20 @@ Validate User Can View Company List
     Enter Credentials And Sign In    ${login_email}    ${login_pwd}
     Validate If User Can Access The Company List
 
-Validate Dashboard Content For Default Company
-    [Documentation]  Validating dashboard contains client list for default company
+Validate Listing For Default Company
+    [Documentation]  Validating client list for default company
     [Tags]    Smoke    CompanySelect    PlootoChallenge
     Access Login Page
     Enter Credentials And Sign In    ${login_email}    ${login_pwd}
     Validate Client List For Default Company
+
+Validate Dashboard Accessibility From Company Selection Page
+    [Documentation]  Validating if dashboard is accessible upon clicking Plooto Inc
+    [Tags]  Smoke   CompanySelect   PlootoChallenge
+    Access Login Page
+    Enter Credentials And Sign In    ${login_email}    ${login_pwd}
+    Click On Plooto Inc Company
+    Validate If Dashboard Opens Up With Content
+    Validate Dashboard Contents
+
+
