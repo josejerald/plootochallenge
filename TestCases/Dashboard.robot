@@ -11,7 +11,7 @@ Resource  ..//TestResources//Dashboard_resource.robot
 *** Test Cases ***
 Validate Dashboard Default Content
     [Documentation]  Validate if company verfication page is loaded by default
-    [Tags]  Smoke    CompanySelect    PlootoChallenge
+    [Tags]  Smoke    Dashboard    PlootoChallenge
     Access Login Page
     Enter Credentials And Sign In    ${login_email}    ${login_pwd}
     Click On Plooto Inc Company
@@ -19,7 +19,7 @@ Validate Dashboard Default Content
 
 Validate Dashboard Highlights Actionable Items
     [Documentation]  Validate if dashboard highlights actionable items
-    [Tags]  Smoke    CompanySelect    PlootoChallenge
+    [Tags]  Smoke    Dashboard    PlootoChallenge
     Access Login Page
     Enter Credentials And Sign In    ${login_email}    ${login_pwd}
     Click On Plooto Inc Company

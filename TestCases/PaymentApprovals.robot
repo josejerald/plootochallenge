@@ -12,7 +12,7 @@ Resource  ..//TestResources//PaymentApprovals_resource.robot
 *** Test Cases ***
 Validate Single Payment in Payment Approval
     [Documentation]    Validating single payment is displayed in Payment Approval
-    [Tags]    Smoke    CompanySelect    PlootoChallenge
+    [Tags]    Smoke    PaymentApprovals    PlootoChallenge
     Access Login Page
     Enter Credentials And Sign In    ${login_email}    ${login_pwd}
     Click On Plooto Inc Company
